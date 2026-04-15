@@ -1,4 +1,4 @@
 # job-application-tracker
 this is my first repository
 <br>
-Author-priti garad
+Author-priti-garad
