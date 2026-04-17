@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Job</title>
+</head>
+<body>
+
+<h2>Edit Job</h2>
+
+<form method="POST">
+    <label>Company:</label><br>
+    <input type="text" name="company" value="{{ job[1] }}"><br><br>
+
+    <label>Role:</label><br>
+    <input type="text" name="role" value="{{ job[2] }}"><br><br>
+
+    <label>Status:</label><br>
+    <select name="status">
+        <option value="Applied">Applied</option>
+        <option value="Interview">Interview</option>
+        <option value="Rejected">Rejected</option>
+    </select><br><br>
+
+    <button type="submit">Update</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Application Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Job Application Tracker 🚀</h1>
+
+<!-- ✅ ONLY KEEP THIS DASHBOARD -->
+<div class="dashboard">
+    <h3>Total Jobs: {{ total }}</h3>
+    <h3>Applied: {{ applied }}</h3>
+    <h3>Interview: {{ interview }}</h3>
+    <h3>Rejected: {{ rejected }}</h3>
+</div>
+
+<h2>Add Job</h2>
+
+<form method="POST">
+    <label>Company Name:</label><br>
+    <input type="text" name="company" required><br><br>
+
+    <label>Job Role:</label><br>
+    <input type="text" name="role" required><br><br>
+
+    <label>Status:</label><br>
+    <select name="status">
+        <option>Applied</option>
+        <option>Interview</option>
+        <option>Rejected</option>
+    </select><br><br>
+
+    <button type="submit">Add Job</button>
+</form>
+
+<hr>
+
+<h2>Job List</h2>
+
+<form method="GET">
+    <input type="text" name="search" placeholder="Search company...">
+    <button type="submit">Search</button>
+    <a href="/">Clear</a>
+</form>
+
+<br>
+
+<table border="1">
+    <tr>
+        <th>Company</th>
+        <th>Role</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+
+    {% for job in jobs %}
+    <tr>
+        <td>{{ job[1] }}</td>
+        <td>{{ job[2] }}</td>
+        <td class="{{ job[3] }}">{{ job[3] }}</td>
+        <td>
+            <a href="/edit/{{ job[0] }}">Edit</a> |
+            <a href="/delete/{{ job[0] }}" onclick="return confirm('Are you sure?')">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<hr>
+
+<p style="text-align:center;">Made by You 🚀</p>
+
+</div>
+
+</body>
+</html>
